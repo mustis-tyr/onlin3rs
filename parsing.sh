@@ -1,7 +1,7 @@
 #!/bin/bash
 
 fix_masscan_json(){
-echo "[" "$(cat $1  | grep -v 'finished')" "{}]" | jq '.[] | select(.ip != null)'
+	echo "[" "$(cat $1  | grep -v 'finished')" "{}]" | jq '.'
 }
 
 parsing_masscan_json_to_nmap(){
