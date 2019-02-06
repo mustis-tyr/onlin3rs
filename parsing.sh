@@ -1,7 +1,7 @@
 #!/bin/bash
 
 fix_masscan_json(){
-	echo "[" "$(cat $1  | grep -v 'finished')" "{}]" | jq '.'
+echo -n "[" $(cat local.json | grep -v 'finished' | sed -e'$ s/.$//') "]"
 }
 
 parsing_masscan_json_to_nmap(){
