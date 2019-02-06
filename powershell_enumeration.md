@@ -19,3 +19,14 @@ powershell -Command "&{ Get-ExecutionPolicy }"
 powershell -Command "&{ Set-ExecutionPolicy unrestricted }"
 ```
 
+# Esconder la ejecución de powershell con vbs
+
+Se usan las siguientes lineas en el archivo vbs.
+
+```
+Dim shell,command
+command = "powershell.exe -nologo -File D:\myscript.ps1"
+Set shell = CreateObject("WScript.Shell")
+shell.Run command,0
+```
+
