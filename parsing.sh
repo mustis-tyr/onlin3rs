@@ -45,3 +45,12 @@ cat "$1"| jq '.[].ports[] | select(.status == "open") | .port' | sort -u -n
 analize_schema(){
 cat "$1" | jq -r 'path(..) | map(tostring) | join("/")';
 }
+
+
+#
+# Sacando host por puerto
+#
+
+filter_host_by_port(){
+	cat "$1" | jq -r --arg PORT "$2" '.[] | select(.ports[].port == ($PORT | tonumber)) | .ip' |  sort -u;
+}
