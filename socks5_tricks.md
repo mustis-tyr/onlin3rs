@@ -32,13 +32,20 @@ Previamente se debieron de haber configurado las llaves de confianza para que no
 ### Con autossh
 
 ~~~
-/usr/bin/autossh -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -f -N -R <puerto-remoto-vps>:localhost:22 usuario-remoto@ip-remota-vps.
+/usr/bin/autossh -M 0\
+ -o "ServerAliveInterval 30"\
+ -o "ServerAliveCountMax 3"\
+ -f -N -R <puerto-remoto-vps>:localhost:22\
+ usuario-remoto@ip-remota-vps.
 ~~~
 
 ### Solo con ssh
 
 ~~~
-ssh -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -f -N -R <puerto-remoto>:localhost:22 usuario-remoto@ip-remota-vps.
+ssh -o ServerAliveInterval=30\
+ -o ServerAliveCountMax=3\
+ -f -N -R <puerto-remoto>:localhost:22\
+ usuario-remoto@ip-remota-vps.
 ~~~
 
 
@@ -49,13 +56,19 @@ En este esquema tiene que exisitir una maquina con un ip publico el cual se pued
 ### Con autossh
 
 ~~~
-/usr/bin/autossh -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -f -N -L <puerto-local>:localhost:<puerto-remoto-vps> usuario-remoto@ip-remota-vps.
+/usr/bin/autossh -M 0 -o "ServerAliveInterval 30"\
+ -o "ServerAliveCountMax 3"\
+ -f -N -L <puerto-local>:localhost:<puerto-remoto-vps>\
+ usuario-remoto@ip-remota-vps.
 ~~~
 
 ### Con ssh
 
 ~~~
-ssh -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -f -N -L <puerto-local>:localhost:<puerto-remoto-vps> usuario-remoto@ip-remota-vps
+ssh -o ServerAliveInterval=30\
+ -o ServerAliveCountMax=3\
+ -f -N -L <puerto-local>:localhost:<puerto-remoto-vps>\
+ usuario-remoto@ip-remota-vps
 ~~~
 
 ## Consejos
