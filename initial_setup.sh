@@ -1,23 +1,27 @@
 #!/bin/bash
 
 
-apt-get install\
- autossh\
- vim\
- tmux\
- terminator\
- nmap\
- proxychains\
- nmon\
- nload\
- htop\
- software-properties-common\
- net-tools\
- sudo\
- mc\
- network-manager-openvpn\
- network-manager-openvpn-gnome\
- openvpn
+apt-get install \
+autossh \
+vim \
+tmux \
+terminator \
+nmap \
+proxychains \
+nmon \
+nload \
+htop \
+software-properties-common \
+net-tools \
+sudo \
+mc \
+network-manager-openvpn \
+network-manager-openvpn-gnome \
+openvpn \
+git \
+firmware-atheros \
+firmware-iwlwifi \
+git \
 
 
 # Install virtualbox
