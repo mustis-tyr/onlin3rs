@@ -1,0 +1,33 @@
+
+- host: all
+  become: true
+  var_files:
+    - var/default.yml
+
+  tasks:
+    - name: Actualizando repositorios
+      tags: [ base_system ]
+      apt: name=aptitude update_cache=yes state=latest force_apt_get=yes
+
+    - name: Instalando paquetes generales.
+      tags: [ base_system ]
+      apt: name={{ item }} update_cache=yes state=latest
+      loop:
+        - 'nmap'
+        - 'nmon'
+        - 'nload'
+        - 'htop'
+        - 'tmux'
+        - 'masscan'
+        - 'python3'
+        - 'python3-pip'
+        - 'virtualenv'
+        - 'snap'
+        - 'jq'
+        - 'vim'
+
+    - name: Bajando el repositorio de Seclist
+      tags: [ diccionario ]
+      git:
+        repo: "https://github.com/danielmiessler/SecLists"
+        dest: "{{ path_wordlist }}/"

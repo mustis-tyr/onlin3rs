@@ -1,0 +1,5 @@
+---
+user: "darkoperator"
+pentest_path: "/opt/pentest"
+path_wordlist: "{{ pentest_path }}/wordlist"
+path_tools: "{{ pentest_path }}/tools"
